@@ -20,16 +20,19 @@ function getApi() {
         var name = document.createElement('h1');
         var shortName = document.createElement('p');
         var day = document.createElement('p');
+        const myImage = new Image(100, 200);
 
         // Parsing the data
         name.textContent = ufc[i].Name;
         shortName.textContent = ufc[i].ShortName;
         day.textContent = ufc[i].Day;
-
+        myImage.src = './images/UFC-FN-Strickland-vs.Imavov-1_2560x (1).jpg';
+        
         // Create dynamic element on the page 
         mmaFights.append(name);
         mmaFights.append(shortName);
         mmaFights.append(day);
+        mmaFights.append(myImage);
       }
     });
 }
