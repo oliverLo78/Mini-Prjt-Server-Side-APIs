@@ -2,6 +2,43 @@
 var mmaFights = document.getElementById('mma-fights');
 // Button click to API call
 var fetchButton = document.getElementById('fetch-button');
+// element to display the form
+var fightsFormEl = document.querySelector('#fights-form');
+var fightInputEl = document.querySelector('#fight');
+// container to display the fights
+var fightContainerEl = document.querySelector('#fights-container');
+var fightSearchTerm = document.querySelector('#fight-search-term');
+
+var formSubmitHandler = function (event) {
+  event.preventDefault();
+
+  var fight = fightInputEl.value.trim();
+
+  if (fight) {
+    getUserRepos(fight);
+
+    fightContainerEl.textContent = '';
+    fightInputEl.value = '';
+  } else {
+    alert('Please enter a UFC fight');
+  }
+};
+
+var buttonClickHandler = function (event) {
+  // What is `event.target` referencing?
+  // TODO: Write your answer here
+  var language = event.target.getAttribute('data-language');
+
+  // Why is this `if` block in place?
+  // TODO: Write your answer here
+  if (language) {
+    getFeaturedRepos(language);
+
+    repoContainerEl.textContent = '';
+  }
+}
+
+
 
 //   getApi function is called when the fetchButton is clicked
 function getApi() {
@@ -20,13 +57,13 @@ function getApi() {
         var name = document.createElement('h1');
         var shortName = document.createElement('p');
         var day = document.createElement('p');
-        const myImage = new Image(100, 200);
+        const myImage = new Image(300, 200);
 
         // Parsing the data
         name.textContent = ufc[i].Name;
         shortName.textContent = ufc[i].ShortName;
         day.textContent = ufc[i].Day;
-        myImage.src = './images/UFC-FN-Strickland-vs.Imavov-1_2560x (1).jpg';
+        myImage.src = './assets/images/UFC-FN-Strickland-vs-Imavov-1_2560x (1).jpg';
         
         // Create dynamic element on the page 
         mmaFights.append(name);

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
   <title>Server-Side APIs</title>
 </head>
@@ -14,9 +13,9 @@
     <h1 class="app-title">
       <span class="material-symbols-rounded">
         sports_mma 
-       </span> Fighters are you Ready?
+       </span> IIIITTTT'S TIMMMMEEEE??
       </h1>
-      <p>Search for a Fighter or Click on fetch UFC fights to see a list of fighters and see the information they have!</p>
+      <p>Search for FightS or Click on fetch UFC fights to see a list of fights!</p>
   </header>
 
 
@@ -24,14 +23,29 @@
     <div class="col-12 col-md-4">
 
       <div class="card">
-        <h3 class="card-header text-uppercase">Search By Fighter</h3>
-          <form id="user-form" class="card-body">
-            <label class="form-label" for="username">Username</label>
-            <input name="username" id="username" type="text" autofocus="true" class="form-input" />
-            <button type="submit" class="btn">Get Fighter</button>
+        <h3 class="card-header text-uppercase">Search By UFC fights</h3>
+          <form id="fights-form" class="card-body">
+            <label class="form-label" for="fights">Fights</label>
+            <input name="fights" id="fights" type="text" autofocus="true" class="form-input" />
+            <button type="submit" class="btn">Get Fights</button>
           </form>
       </div>
 
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search By weight class</h3>
+        <div id="language-buttons" class="card-body">
+          <button data-language="javascript" class="btn">JavaScript</button>
+          <button data-language="html" class="btn">HTML</button>
+          <button data-language="css" class="btn">CSS</button>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="col-12 col-md-8">
+        <h2 class="subtitle">Showing UCF fights for: <span id="fights-search-term"></span></h2>
+        <div id="fights-container" class="list-group"></div>
+      </div>
 
     <div class="col-12">
       <section class="card card-rounded bg-white">
@@ -51,7 +65,7 @@
             </button>
           </div>
           <ul id="mma-fights" class="col-8 mb-3"></ul>
-          <img width="100" height="200" src="picture.jpg" />
+          <img width="300" height="200" src="" />
         </div>
         <footer class="card-footer text-center">
           ^ You should see a list of ufc schedules and past fights ^
