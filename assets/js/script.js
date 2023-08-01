@@ -4,7 +4,7 @@ var mmaFights = document.getElementById('mma-fights');
 var fetchButton = document.getElementById('fetch-button');
 // element to display the form
 var fightsFormEl = document.querySelector('#fights-form');
-var fightInputEl = document.querySelector('#fight');
+var nameInputEl = document.querySelector('#nameinput');
 // container to display the fights
 var fightContainerEl = document.querySelector('#fights-container');
 var fightSearchTerm = document.querySelector('#fight-search-term');
@@ -12,32 +12,51 @@ var fightSearchTerm = document.querySelector('#fight-search-term');
 var formSubmitHandler = function (event) {
   event.preventDefault();
 
-  var fight = fightInputEl.value.trim();
+  var name = nameInputEl.value.trim();
 
-  if (fight) {
-    getUserRepos(fight);
+  if (name) {
+    getUserRepos(name);
 
     fightContainerEl.textContent = '';
-    fightInputEl.value = '';
+    nameInputEl.value = '';
   } else {
-    alert('Please enter a UFC fight');
+    alert('Please enter a UFC fight name');
   }
 };
 
 var buttonClickHandler = function (event) {
   // What is `event.target` referencing?
   // TODO: Write your answer here
-  var language = event.target.getAttribute('data-language');
+  var fighter = event.target.getAttribute('data-fighter');
 
   // Why is this `if` block in place?
   // TODO: Write your answer here
-  if (language) {
-    getFeaturedRepos(language);
+  if (fighter) {
+    getFeaturedRepos(fighter);
 
     repoContainerEl.textContent = '';
   }
 }
 
+var getFighterData = function (user) {
+  var apiUrl = 'https://api.sportsdata.io/v3/mma/scores/json/Fighters?key=a9c3522c4f0548e0a9e4e258699591f8' + user + '/repos';
+
+  fetch(apiUrl)
+    .then(function (response) {
+      if (response.ok) {
+        console.log(response);
+        response.json().then(function (data) {
+          console.log(data);
+          displayRepos(data, user);
+        });
+      } else {
+        alert('Error: ' + response.statusText);
+      }
+    })
+    .catch(function (error) {
+      alert('Unable to connect to GitHub');
+    });
+};
 
 
 //   getApi function is called when the fetchButton is clicked

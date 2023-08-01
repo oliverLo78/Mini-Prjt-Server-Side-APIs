@@ -13,38 +13,37 @@
     <h1 class="app-title">
       <span class="material-symbols-rounded">
         sports_mma 
-       </span> IIIITTTT'S TIMMMMEEEE??
+       </span> IIIITTTT'S TIIIIMMEE??
       </h1>
       <p>Search for FightS or Click on fetch UFC fights to see a list of fights!</p>
   </header>
-
 
   <main class="flex-row justify-center align-center col-auto p-4">
     <div class="col-12 col-md-4">
 
       <div class="card">
-        <h3 class="card-header text-uppercase">Search By UFC fights</h3>
+        <h3 class="card-header text-uppercase">Search By UFC fight name</h3>
           <form id="fights-form" class="card-body">
-            <label class="form-label" for="fights">Fights</label>
-            <input name="fights" id="fights" type="text" autofocus="true" class="form-input" />
+            <label class="form-label" for="fightname">Fight Name</label>
+            <input name="nameinput" id="nameinput" type="text" autofocus="true" class="form-input" />
             <button type="submit" class="btn">Get Fights</button>
           </form>
       </div>
 
       <div class="card">
-        <h3 class="card-header text-uppercase">Search By weight class</h3>
-        <div id="language-buttons" class="card-body">
-          <button data-language="javascript" class="btn">JavaScript</button>
-          <button data-language="html" class="btn">HTML</button>
-          <button data-language="css" class="btn">CSS</button>
+        <h3 class="card-header text-uppercase">Search By UFC fighter</h3>
+        <div id="fighter-buttons" class="card-body">
+          <button data-fighter="SigStrikeAccuracy" class="btn">Significant Strike Accuray</button>
+          <button data-fighter="TakedownAverage" class="btn">Take Down Average</button>
+          <button data-fighter="SubmissionAverage" class="btn">Submission Average</button>
         </div>
       </div>
     </div>
 
 
       <div class="col-12 col-md-8">
-        <h2 class="subtitle">Showing UCF fights for: <span id="fights-search-term"></span></h2>
-        <div id="fights-container" class="list-group"></div>
+        <h2 class="subtitle">Showing UCF fighters: <span id="fighter-search-term"></span></h2>
+        <div id="fighter-container" class="list-group"></div>
       </div>
 
     <div class="col-12">
@@ -73,6 +72,7 @@
       </section>
     </div>
   </main>
+
   <script src="./assets/js/script.js"></script>
 </body>
 
