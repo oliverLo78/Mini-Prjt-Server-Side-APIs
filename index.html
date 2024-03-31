@@ -1,79 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-  <title>Server-Side APIs</title>
-</head>
-
-<body class="min-100-vh flex-column">
-  <header class="hero">
-    <h1 class="app-title">
-      <span class="material-symbols-rounded">
-        sports_mma 
-       </span> IIIITTTT'S TIIIIMMEE
-      </h1>
-      <p>Search for FightS or Click on fetch UFC fights to see a list of fights!</p>
-  </header>
-
-  <main class="flex-row justify-center align-center col-auto p-4">
-    <div class="col-12 col-md-4">
-
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search By UFC fight name</h3>
-          <form id="fight-form" class="card-body">
-            <label class="form-label" for="fightname">Fight Name</label>
-            <input name="fightername" id="fightername" type="text" autofocus="true" class="form-input" />
-            <button type="submit" class="btn">Get Fighter</button>
-          </form>
-      </div>
-
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search By UFC fighter Stats</h3>
-        <div id="fighter-buttons" class="card-body">
-          <button data-fighter="SigStrikeAccuracy" class="btn">Significant Strike Accuray</button>
-          <button data-fighter="TakedownAverage" class="btn">Take Down Average</button>
-          <button data-fighter="SubmissionAverage" class="btn">Submission Average</button>
-        </div>
-      </div>
-    </div>
-
-
-      <div class="col-12 col-md-8">
-        <h2 class="subtitle">Showing UCF fighters: <span id="fighter-search-term"></span></h2>
-        <div id="fighter-container" class="list-group"></div>
-      </div>
-
-    <div class="col-12">
-      <section class="card card-rounded bg-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamically Generated Elements</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body class="min-100-vh flex-column">
+    <header class="p-5 text-center text-white bg-primary">
+      <h1>Server-Side APIs</h1>
+    </header>
+    <main class="flex-row justify-center align-center col-auto p-4 bg-light">
+      <section class="card card-rounded col-7 bg-white">
         <header class="card-header text-center">
           <h2 class="text-white">
-            Create a fetch request
+            Dynamically Generated Elements
           </h2>
         </header>
-        <div class="card-body flex-row justify-center p-4 text-center">
-          <p class="col-10 mb-3">
-            In the script.js file, create the correct URL for the fetch request
-            to list UFC schedules.
+        <div class="text-center p-4">
+          <p class="card-body">
+            When we hit the 'Click Me' button, we see a list of the last 5
+            MMA champions from the UFC sportradar api. This content is dynamically
+            generated using the response we get from the API request!
           </p>
-          <div class="col-8 mb-3">
-            <button class="btn btn-primary" id="fetch-button" >
-              Fetch UFC fights schedules
-            </button>
-          </div>
-          <ul id="mma-fights" class="col-8 mb-3"></ul>
-          <img width="300" height="200" src="" />
+          <button class="btn btn-danger" id="fetch-button">
+            Click Me
+          </button>
         </div>
-        <footer class="card-footer text-center">
-          ^ You should see a list of ufc schedules and past fights ^
-        </footer>
+        <div class="container" id="champions"></div>
       </section>
-    </div>
-  </main>
-
-  <script src="./assets/js/script.js"></script>
-</body>
-
+    </main>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
