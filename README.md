@@ -23,7 +23,7 @@ The following image demonstrates the web application's appearance and functional
 
 ## 💡 Hints
 
-* How can we use the [sportsdata API documentation on repositories](https://sportsdata.io/developers/api-documentation/mma#/sports-data/league-feeds) to support this implementation?
+* How can we use the [octagon API documentation on repositories](https://www.octagon-api.com/) to support this implementation?
 
 * Where in the URL string is the endpoint added?
 
