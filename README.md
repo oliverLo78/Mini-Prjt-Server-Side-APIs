@@ -13,8 +13,9 @@ Work with a partner to implement the following user story:
 ## Assets
 
 The following image demonstrates the web application's appearance and functionality:
+![Screenshot 2025-05-26 160924](https://github.com/user-attachments/assets/15cd34f3-a791-4843-8579-c20e46714f07)
 
-![The web page shows a user's GitHub repositories when the button is selected.](./Images/01-solution-screenshot.png)
+
 
 ---
 ## 🔗 Link
