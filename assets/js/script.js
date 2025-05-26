@@ -1,38 +1,37 @@
-var issueContainer = document.getElementById('champions');
+var rankingsContainer = document.getElementById('rankings');
 var fetchButton = document.getElementById('fetch-button');
 
 function getApi() {
-  const apiUrl = 'https://api.sportradar.com/mma/trial/v2/en/competitors/sr%3Acompetitor%3A237652/versus/sr%3Acompetitor%3A237640/summaries.json?api_key=vNGpDtyRW26ZQNutJ8jmk2gIstLvCeZx8e0kVFoW';
-  const options = { method: 'GET', headers: { accept: 'application/json' } };
+  var requestUrl = 'https://api.octagon-api.com/rankings';
 
-  fetch(apiUrl, options)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+  fetch(requestUrl)
+    .then(function (response) {
       return response.json();
     })
-    .then((data) => {
-      console.log(data);
-      for (var i = 0; i < data.length; i++) {
-        var name = document.createElement('h3');
-        var abbreviation = document.createElement('p');
-        var competitors = document.createElement('h4');
-        var issueHr = document.createElement('hr');
+    .then(function (rankings) {
+      console.log(rankings);
 
-        name.textContent = data[i].name;
-        abbreviation.textContent = data[i].abbreviation;
-        competitors.textContent = data[i].competitors;
+      for (var i = 0; i < rankings.length; i++) {
+        // Creating dynamic element
+        var hr = document.createElement('hr');
+        var categoryName = document.createElement('h2');
+        var champion = document.createElement('h3');
+        var championName = document.createElement('h4');
+        var fighters = document.createElement('tr');
 
-        issueContainer.append(name);
-        issueContainer.append(abbreviation);
-        issueContainer.append(competitors);
-        issueContainer.append(issueHr);
+        categoryName.textContent = rankings[i].categoryName;
+        champion.textContent = rankings[i].champion.championName;
+        championName.textContent = rankings[i].championName;
+        fighters.textContent = rankings[i].fighters.name;
+        
+        rankingsContainer.appendChild(categoryName);
+        rankingsContainer.appendChild(champion);
+        rankingsContainer.appendChild(championName);
+        rankingsContainer.appendChild(fighters);
+        rankingsContainer.appendChild(hr);
       }
-    })
-    .catch((error) => {
-      console.error('Error fetching data:', error);
+      
     });
 }
-
 fetchButton.addEventListener('click', getApi);
+

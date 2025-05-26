@@ -347,6 +347,18 @@
     display: list-item;
   }
   
+/* Add this to your style.css file */
+.list-group {
+  margin-top: 20px;
+}
+
+.list-group-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
   /* Misc
      ========================================================================== */
   /**
